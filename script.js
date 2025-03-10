@@ -43,10 +43,10 @@ function getCountryInfo(url) {
                 .then(borderCountries => {
                     const bordersHtml = borderCountries.map(borderCountry => {
                         return `
-                            <div>
+                            
                                 <p>${borderCountry.name}</p>
                                 <img src="${borderCountry.flag}" alt="Flag of ${borderCountry.name}" width="400">
-                            </div>
+                            
                         `;
                     }).join('');
 
@@ -79,6 +79,9 @@ form.addEventListener("submit", (event) => {
     if (countrySearch){ //checks if the input is empty or not 
         getCountryInfo(urlSeachAPI + countrySearch);
         //userInputForm.value = "";
+    }
+    else{
+        countryInfoSec.innerHTML = `<p>Sorry no such country exists.</p>`;
     }
 
   });
